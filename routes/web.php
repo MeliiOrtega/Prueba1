@@ -18,4 +18,10 @@ Route::get('category/{category}',  [CourseController::class, 'category'])->name(
 
 Route::get('cursos/{course}', [CourseController::class, 'show'])->name('courses.show');
 
+//Matricular
+Route::post('courses/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('courses.enrolled');
+
+Route::get('course-status/{course}', function ($course) {
+    return "CONTROL";
+})->name('course.status');
 
