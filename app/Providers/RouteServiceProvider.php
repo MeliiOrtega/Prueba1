@@ -51,6 +51,14 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('admin') //Todas las rutas que designamos tendra un prefijo
                 ->namespace($this->namespace)
                 ->group(base_path('routes/admin.php'));
+
+            //!RECORDAR INSTRUCTOR ES VOLUNTARY
+            Route::middleware('web', 'auth')
+                ->name('voluntary.')
+                ->prefix('voluntary') //Todas las rutas que designamos tendra un prefijo
+                ->namespace($this->namespace)
+                ->group(base_path('routes/voluntary.php'));
+                //*RECORDAR INSTRUCTOR ES VOLUNTARY
         });
     }
 

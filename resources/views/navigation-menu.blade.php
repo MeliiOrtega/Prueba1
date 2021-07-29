@@ -119,6 +119,10 @@
                                 {{ __('Perfil') }}
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('voluntary.courses.index') }}">
+                                {{ __('Voluntario') }}
+                            </x-jet-dropdown-link>
+
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
@@ -192,7 +196,11 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Perfil') }}
+                    Perfil
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('voluntary.courses.index') }}" :active="request()->routeIs('profile.show')">
+                   Voluntario
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

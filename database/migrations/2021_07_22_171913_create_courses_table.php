@@ -21,13 +21,16 @@ class CreateCoursesTable extends Migration
             $table->text('description');
             $table->enum('status', [Course::BORRADOR, Course::REVISION, Course::PUBLICADO])->default(Course::BORRADOR);
             $table->string('slug');
+            $table->string('week');
+            $table->time('hourStart');
+            $table->time('hourEnd');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
-            
+
             $table->timestamps();
         });
     }

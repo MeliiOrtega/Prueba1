@@ -1,22 +1,14 @@
 <x-app-layout>
     <!-- Portada -->
-    <section class ="bg-cover bg-no-repeat bg-center w-auto y-auto" style="background-image: url({{asset('img/Home/Curso.jpg')}})">
+    <section class ="bg-cover bg-no-repeat bg-center w-auto y-auto h-screen" style="background-image: url({{asset('img/Home/Home2.jpg')}})">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-36">
                 <div class="w-full md:w-3/4 lg:w-1/2">
-                    <h1 class="text-white font-bold text-4xl">
+                    <h1 class="text-indigo-800 font-bold text-4xl">
                         Bienvenid@ a Moment!
                     </h1>
-                    <p class ="text-white text-lg mt-2 mb-4">Encontraras actividades dirigidas especialmente para ti, porque tú eres importante para nosotros</p>
+                    <p class ="font-bold text-lg mt-4 mb-4">Encontraras actividades dirigidas especialmente para ti, porque tú eres importante para nosotros</p>
+                    @livewire('search')
 
-               <!-- BARRA DE BUSQUEDA -->
-                    <div class="pt-2 relative mx-auto text-gray-600">
-                        <input class=" w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                        type="search" name="search" placeholder="Buscar">
-                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-400 text-white font-bold py-2 px-4  rounded absolute right-0 top-0 mt-2">
-                            Buscar
-                          </button>
-
-                    </div>
                 </div>
             </div>
     </section>
@@ -50,7 +42,7 @@
                     <img class ="rounded-md h-36 w-full object-cover"src="{{asset('img/actividades/manualidad.jpeg')}}" alt="">
                 </figure>
                 <header class="mt-2">
-                    <h1 class="text-center text-xl text-gray-700">Manualidades</h1>
+                    <h1 class="text-center text-xl text-gray-700">Arte</h1>
                 </header>
                 <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, ducimus officiis commodi quaerat.</p>
             </header>

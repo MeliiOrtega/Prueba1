@@ -13,6 +13,8 @@
                 <p class="mb-2" > <i class="fas fa-sitemap"></i> Categoria: {{$course->category->name}}</p>
                 <p class="mb-2" > <i class="fas fa-users"></i> Registrados: {{$course->students_count}}</p>
                 <p class="mb-2" > <i class="fas fa-star"></i> Calificación: {{$course->rating}}</p>
+                <p class="mb-2"><i class="fas fa-calendar-week"></i> Dias: {{$course->week}}</p>
+                <p class="mb-2"><i class="fas fa-clock"></i> Hora: {{$course->hourStart}} - {{$course->hourEnd}}</p>
             </div>
         </div>
     </section>
@@ -49,9 +51,12 @@
                             <div class="bg-white py-2 px-4" x-show="open">
                                 <ul class="grid grid-cols-1 gap-2">
                                     @foreach ($section->lessons as $lesson)
-                                        <li class="text-gray-700 text-base"> <i class="fas fa-play-circle text-gray-600" aria-hidden="true"></i>
+                                        <li class="text-gray-700 text-base">
+                                            <a href="{{route('courses.status', $course)}}"><i class="fas fa-play-circle text-gray-600" aria-hidden="true"></i>
                                             {{$lesson->name}}
+                                        </a>
                                         </li>
+
                                     @endforeach
                                 </ul>
                             </div>
@@ -79,10 +84,18 @@
                         </div>
                     </div>
                     {{-- <a class="btn btn-danger btn-block mt-4" href="{{}}">Registrase</a> --}}
-                    <form action="{{route('courses.enrolled', $course)}}" method="post">
-                        @csrf
-                        <button class="btn btn-danger btn-block mt-4" type="submit">Registrarse</button>
-                    </form>
+
+                   @can('enrolled', $course)
+                        <a class="btn btn-danger btn-block mt-4" href="{{route('courses.status', $course)}}">Ver contenido</a>
+
+
+                   @else
+                        <form action="{{route('courses.enrolled', $course)}}" method="post">
+                            @csrf
+                            <button class="btn btn-danger btn-block mt-4" type="submit">Registrarse</button>
+                        </form>
+                   @endcan
+
                 </div>
             </section>
 

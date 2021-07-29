@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
 
-
     public function index(){
         $courses = Course::where('status',3)->latest('id')->paginate(8);
         $categories = Category::all();
@@ -22,6 +21,9 @@ class CourseController extends Controller
     }
 
     public function show(Course $course){
+
+        $this->authorize('published', $course);
+
         $similares = Course::where('category_id',$course->category_id)
                             ->where('id', '!=', $course->id)
                             ->where('status', 3)
@@ -40,9 +42,14 @@ class CourseController extends Controller
 
     public function enrolled(Course $course){
          $course->students()->attach(auth()->user()->id);
-         return redirect()->route('course.status',$course);;
+         return redirect()->route('courses.status',$course);;
     }
 
+
+   /*  public function status(Course $course){
+        return view('courses.status', compact('course'));
+
+    } */
 
 
 }

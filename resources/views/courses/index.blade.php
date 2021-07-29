@@ -8,15 +8,7 @@
                     </h1>
                     <p class ="text-white font-bold text-lg mt-2 mb-4">Encontraras actividades dirigidas especialmente para ti, porque tú eres importante para nosotros</p>
 
-               <!-- BARRA DE BUSQUEDA -->
-                    <div class="pt-2 relative mx-auto text-gray-600">
-                        <input class=" w-full border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                        type="search" name="search" placeholder="Buscar">
-                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-400 text-white font-bold py-2 px-4  rounded absolute right-0 top-0 mt-2">
-                            Buscar
-                          </button>
-
-                    </div>
+                    @livewire('search')
                 </div>
             </div>
     </section>

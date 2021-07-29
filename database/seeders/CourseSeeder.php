@@ -27,7 +27,7 @@ class CourseSeeder extends Seeder
                 'imageable_type' => 'App\Models\Course'
             ]);
 
-            Goal::factory()->create([
+            Goal::factory(4)->create([
                 'course_id' => $course->id
             ]);
 

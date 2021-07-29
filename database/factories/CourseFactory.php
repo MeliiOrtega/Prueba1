@@ -33,6 +33,9 @@ class CourseFactory extends Factory
             'description' => $this->faker->paragraph(),
             'status' => $this->faker->randomElement([Course::BORRADOR, Course::REVISION, Course::PUBLICADO]),
             'slug' => Str::slug($title),
+            'week' => $this->faker->randomElement(['Lunes a Viernes', 'Sabado y Domingo', 'Miercoles a Viernes']) ,
+            'hourStart' => $this->faker->time() ,
+            'hourEnd' => $this->faker->time(),
             'user_id' => 1,
             'category_id' => Category::all()->random()->id
         ];
