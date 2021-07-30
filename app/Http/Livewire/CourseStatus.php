@@ -10,8 +10,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class CourseStatus extends Component
 {
 
+    use AuthorizesRequests;
 
-  use AuthorizesRequests;
       public $course, $lesson;
 
 
@@ -23,7 +23,7 @@ class CourseStatus extends Component
          foreach ($course->lessons as $lesson) {
             $this->lesson = $lesson;
         }
-        $this->authorize('enrolled', $course);
+     $this->authorize('enrolled', $course);
     }
 
 

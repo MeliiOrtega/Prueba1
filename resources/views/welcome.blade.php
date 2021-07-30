@@ -6,7 +6,7 @@
                     <h1 class="text-indigo-800 font-bold text-4xl">
                         Bienvenid@ a Moment!
                     </h1>
-                    <p class ="font-bold text-lg mt-4 mb-4">Encontraras actividades dirigidas especialmente para ti, porque tú eres importante para nosotros</p>
+                    <p class ="font-bold text-lg mt-4 mb-4">Encontraras actividades dirigidas especialmente para ti, <br> porque tú eres importante para nosotros</p>
                     @livewire('search')
 
                 </div>

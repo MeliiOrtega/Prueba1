@@ -24,6 +24,7 @@ class CreateCoursesTable extends Migration
             $table->string('week');
             $table->time('hourStart');
             $table->time('hourEnd');
+            $table->string('link');
 
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id')->nullable();

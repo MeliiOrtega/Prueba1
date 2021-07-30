@@ -23,8 +23,15 @@ class CoursePolicy
     public function enrolled(User $user, Course $course){ //PARA CONOCER SI ESTA REGISTRADO
         return $course->students->contains($user->id);
     }
-    public function published(user $user){
-        
+
+
+    public function published(?User $user, Course $course){
+        if ($course->status == 3) {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 

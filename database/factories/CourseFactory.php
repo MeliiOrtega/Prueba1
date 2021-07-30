@@ -36,6 +36,7 @@ class CourseFactory extends Factory
             'week' => $this->faker->randomElement(['Lunes a Viernes', 'Sabado y Domingo', 'Miercoles a Viernes']) ,
             'hourStart' => $this->faker->time() ,
             'hourEnd' => $this->faker->time(),
+            'link' => $this->faker->sentence(),
             'user_id' => 1,
             'category_id' => Category::all()->random()->id
         ];
