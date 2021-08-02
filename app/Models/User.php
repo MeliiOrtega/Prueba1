@@ -30,7 +30,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'phone',
+        'razon'
     ];
+    const admin=1;
+    const voluntario=2;
+    const usuario=3;
 
     /**
      * The attributes that should be hidden for arrays.

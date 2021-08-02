@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Voluntary;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Category;
 
 class CourseController extends Controller
 {
@@ -25,7 +26,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('voluntary.courses.create');
+        $categories = Category::pluck('name', 'id');
+        return view('voluntary.courses.create', compact('categories'));
     }
 
     /**
@@ -58,7 +60,10 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        return view('voluntary.courses.edit', compact('course'));
+
+
+        $categories = Category::pluck('name', 'id');
+        return view('voluntary.courses.edit', compact('course', 'categories'));
     }
 
     /**

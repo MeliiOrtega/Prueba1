@@ -511,14 +511,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- *
+ * 
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- *
+ * 
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 
@@ -1055,6 +1055,20 @@ select {
 .prose > :last-child {
 	margin-bottom: 0;
 }
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+.static {
+	position: static;
+}
 .fixed {
 	position: fixed;
 }
@@ -1091,22 +1105,55 @@ select {
 .order-1 {
 	order: 1;
 }
+.order-3 {
+	order: 3;
+}
 .col-span-6 {
 	grid-column: span 6 / span 6;
 }
 .col-span-2 {
 	grid-column: span 2 / span 2;
 }
+.col-span-4 {
+	grid-column: span 4 / span 4;
+}
+.float-right {
+	float: right;
+}
+.float-left {
+	float: left;
+}
+.float-none {
+	float: none;
+}
 .m-2 {
 	margin: 0.5rem;
+}
+.m-0 {
+	margin: 0px;
+}
+.m-auto {
+	margin: auto;
 }
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
 }
+.my-2 {
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
 .my-24 {
 	margin-top: 6rem;
 	margin-bottom: 6rem;
+}
+.-my-2 {
+	margin-top: -0.5rem;
+	margin-bottom: -0.5rem;
+}
+.my-0 {
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 .ml-3 {
 	margin-left: 0.75rem;
@@ -1186,6 +1233,9 @@ select {
 .ml-auto {
 	margin-left: auto;
 }
+.mr-4 {
+	margin-right: 1rem;
+}
 .mb-12 {
 	margin-bottom: 3rem;
 }
@@ -1201,20 +1251,35 @@ select {
 .mb-8 {
 	margin-bottom: 2rem;
 }
+.mb-1 {
+	margin-bottom: 0.25rem;
+}
+.mt-0 {
+	margin-top: 0px;
+}
 .mb-16 {
 	margin-bottom: 4rem;
 }
-.mr-4 {
-	margin-right: 1rem;
+.ml-0 {
+	margin-left: 0px;
+}
+.mb-0 {
+	margin-bottom: 0px;
 }
 .block {
 	display: block;
+}
+.inline-block {
+	display: inline-block;
 }
 .flex {
 	display: flex;
 }
 .inline-flex {
 	display: inline-flex;
+}
+.table {
+	display: table;
 }
 .grid {
 	display: grid;
@@ -1260,6 +1325,12 @@ select {
 }
 .h-screen {
 	height: 100vh;
+}
+.h-64 {
+	height: 16rem;
+}
+.h-auto {
+	height: auto;
 }
 .min-h-screen {
 	min-height: 100vh;
@@ -1311,6 +1382,9 @@ select {
 }
 .min-w-0 {
 	min-width: 0px;
+}
+.min-w-full {
+	min-width: 100%;
 }
 .max-w-screen-xl {
 	max-width: 1280px;
@@ -1381,6 +1455,12 @@ select {
 .grid-cols-3 {
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 }
+.grid-cols-5 {
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-cols-2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 .flex-col {
 	flex-direction: column;
 }
@@ -1442,8 +1522,20 @@ select {
 	margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-y-reverse: 0;
+	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+	border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
+}
+.divide-gray-200 > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-opacity: 1;
+	border-color: rgba(229, 231, 235, var(--tw-divide-opacity));
+}
 .overflow-hidden {
 	overflow: hidden;
+}
+.overflow-x-auto {
+	overflow-x: auto;
 }
 .overflow-y-auto {
 	overflow-y: auto;
@@ -1454,6 +1546,9 @@ select {
 .truncate {
 	overflow: hidden;
 	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.whitespace-nowrap {
 	white-space: nowrap;
 }
 .rounded-md {
@@ -1489,6 +1584,9 @@ select {
 }
 .border-2 {
 	border-width: 2px;
+}
+.border-0 {
+	border-width: 0px;
 }
 .border-b-2 {
 	border-bottom-width: 2px;
@@ -1540,10 +1638,6 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
 }
-.bg-green-100	{
-    --tw-bg-opacity: 1;
-    background-color: rgba(209, 250, 229, var(--tw-bg-opacity));
-}
 .bg-indigo-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(99, 102, 241, var(--tw-bg-opacity));
@@ -1588,6 +1682,14 @@ select {
 	--tw-bg-opacity: 1;
 	background-color: rgba(199, 210, 254, var(--tw-bg-opacity));
 }
+.bg-yellow-100 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(254, 243, 199, var(--tw-bg-opacity));
+}
+.bg-green-100 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(209, 250, 229, var(--tw-bg-opacity));
+}
 .bg-yellow-500 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
@@ -1595,10 +1697,6 @@ select {
 .bg-indigo-100 {
 	--tw-bg-opacity: 1;
 	background-color: rgba(224, 231, 255, var(--tw-bg-opacity));
-}
-.bg-yellow-100	{
-    --tw-bg-opacity: 1;
-    background-color: rgba(254, 243, 199, var(--tw-bg-opacity));
 }
 .bg-opacity-25 {
 	--tw-bg-opacity: 0.25;
@@ -1621,6 +1719,9 @@ select {
 }
 .p-6 {
 	padding: 1.5rem;
+}
+.p-0 {
+	padding: 0px;
 }
 .px-4 {
 	padding-left: 1rem;
@@ -1722,11 +1823,23 @@ select {
 .pr-16 {
 	padding-right: 4rem;
 }
+.pl-2 {
+	padding-left: 0.5rem;
+}
+.text-left {
+	text-align: left;
+}
 .text-center {
 	text-align: center;
 }
 .text-right {
 	text-align: right;
+}
+.align-baseline {
+	vertical-align: baseline;
+}
+.align-middle {
+	vertical-align: middle;
 }
 .font-sans {
 	font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -1778,6 +1891,9 @@ select {
 .uppercase {
 	text-transform: uppercase;
 }
+.italic {
+	font-style: italic;
+}
 .leading-5 {
 	line-height: 1.25rem;
 }
@@ -1789,6 +1905,9 @@ select {
 }
 .leading-4 {
 	line-height: 1rem;
+}
+.leading-8 {
+	line-height: 2rem;
 }
 .leading-10 {
 	line-height: 2.5rem;
@@ -1874,20 +1993,22 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(251, 191, 36, var(--tw-text-opacity));
 }
+.text-red-800 {
+	--tw-text-opacity: 1;
+	color: rgba(153, 27, 27, var(--tw-text-opacity));
+}
+.text-yellow-800 {
+	--tw-text-opacity: 1;
+	color: rgba(146, 64, 14, var(--tw-text-opacity));
+}
+.text-green-800 {
+	--tw-text-opacity: 1;
+	color: rgba(6, 95, 70, var(--tw-text-opacity));
+}
 .text-indigo-800 {
 	--tw-text-opacity: 1;
 	color: rgba(55, 48, 163, var(--tw-text-opacity));
 }
-.text-green-800	{
-    --tw-text-opacity: 1;
-    color: rgba(6, 95, 70, var(--tw-text-opacity));
-}
-
-.text-yellow-800{
-    --tw-text-opacity: 1;
-    color: rgba(146, 64, 14, var(--tw-text-opacity));
-}
-
 .text-gray-200 {
 	--tw-text-opacity: 1;
 	color: rgba(229, 231, 235, var(--tw-text-opacity));
@@ -2135,8 +2256,6 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(156, 163, 175, var(--tw-text-opacity));
 }
-
-
 .hover\:text-gray-700:hover {
 	--tw-text-opacity: 1;
 	color: rgba(55, 65, 81, var(--tw-text-opacity));
@@ -2153,10 +2272,13 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(185, 28, 28, var(--tw-text-opacity));
 }
-
-.hover\:text-indigo-700:hover {
+.hover\:text-indigo-900:hover {
 	--tw-text-opacity: 1;
-	color: rgba(67, 56, 202, var(--tw-text-opacity));
+	color: rgba(49, 46, 129, var(--tw-text-opacity));
+}
+.hover\:text-red-600:hover {
+	--tw-text-opacity: 1;
+	color: rgba(220, 38, 38, var(--tw-text-opacity));
 }
 .hover\:text-white:hover {
 	--tw-text-opacity: 1;
@@ -2303,6 +2425,11 @@ select {
 	.sm\:-my-px {
 		margin-top: -1px;
 		margin-bottom: -1px;
+	}
+
+	.sm\:-mx-6 {
+		margin-left: -1.5rem;
+		margin-right: -1.5rem;
 	}
 
 	.sm\:ml-3 {
@@ -2472,6 +2599,11 @@ select {
 	.sm\:text-left {
 		text-align: left;
 	}
+
+	.sm\:text-sm {
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+	}
 }
 @media (min-width: 768px) {
 
@@ -2514,6 +2646,10 @@ select {
 	.md\:border-l {
 		border-left-width: 1px;
 	}
+
+	.md\:font-bold {
+		font-weight: 700;
+	}
 }
 @media (min-width: 1024px) {
 
@@ -2531,6 +2667,11 @@ select {
 
 	.lg\:col-span-2 {
 		grid-column: span 2 / span 2;
+	}
+
+	.lg\:-mx-8 {
+		margin-left: -2rem;
+		margin-right: -2rem;
 	}
 
 	.lg\:block {

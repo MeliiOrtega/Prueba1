@@ -39,7 +39,7 @@
                         {{'@' . Str::slug($course->teacher->name, '')}}</a>
                     </div>
                 </div>
-                <a class="btn btn-danger btn-block mt-4 mb-4" href="">Videollamada</a>
+                <a class="btn btn-danger btn-block mt-4 mb-4" href="{{$course->link}}">Videollamada</a>
                 <ul>
                         @foreach ($course->sections as $section)
                         <li class="text-gray-600 mb-4" >

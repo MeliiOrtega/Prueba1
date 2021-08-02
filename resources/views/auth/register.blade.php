@@ -6,7 +6,7 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}" class="bg-indigo-200">
+        <form method="POST" action="{{ route('register') }}" class="bg-indigo-200" x-data="{role: 2}">
             @csrf
 
             <div>
@@ -25,9 +25,29 @@
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-jet-label for="password_confirmation" value="{{ __('Confirmar Contraseña') }}" />
                 <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
+
+            <div class="mt-4">
+                <x-jet-label for="role" value="{{ __('Escoge un rol') }}" />
+                {{-- <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" /> --}}
+                <select  class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" name="role" id="role" x-model="role">
+                    <option value="2">Usuario</option>
+                    <option value="3">Voluntario</option>
+                </select>
+            </div>
+
+            <div class="mt-4" x-show="role == 3">
+                <x-jet-label for="phone" value="{{ __('Celular') }}" />
+                <x-jet-input id="phone" class="block mt-1 w-full" type="number" name="phone" />
+            </div>
+
+            <div class="mt-4" x-show="role == 3">
+                <x-jet-label for="password" value="{{ __('¿Por qué quiere ser voluntario?') }}" />
+                <textarea   class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" name="razon" id="razon" cols="20" rows="5"></textarea>
+            </div>
+
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">

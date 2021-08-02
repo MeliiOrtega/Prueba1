@@ -6,7 +6,7 @@
             'active' => request()->routeIs('home')
         ],
         [
-        'name'=> 'Cursos',
+        'name'=> 'Actividades',
         'route'=> route('courses.index'),
         'active' =>request()->routeIs('courses.*')
         ]

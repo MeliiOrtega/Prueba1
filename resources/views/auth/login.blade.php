@@ -1,4 +1,5 @@
 <x-guest-layout>
+
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
@@ -39,7 +40,7 @@
                     </a>
                 @endif
                 <div class="flex justify-around">
-                    <a  class="font-bold text-gray-700 hover:text-indigo-600" href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrarse</a>
+                    <a  class="font-bold text-gray-700 hover:text-red-600" href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registrarse</a>
 
                 <x-jet-button class="ml-4">
                     {{ __('Iniciar Sesion') }}
