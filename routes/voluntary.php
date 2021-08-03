@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\VoluntaryCourses;
 use App\Http\Controllers\Voluntary\CourseController;
+use App\Http\Livewire\Voluntary\CoursesCurriculum;
 
 //!RECORDAR INSTRUCTOR ES VOLUNTARY
 //*RECORDAR INSTRUCTOR ES VOLUNTARY
@@ -10,3 +11,5 @@ use App\Http\Controllers\Voluntary\CourseController;
 Route::redirect('', 'voluntary/courses');
 
 Route::resource('courses', CourseController::class)->names('courses');
+
+Route::get('courses/{course}/curriculum', CoursesCurriculum::class)->name('courses.curriculum');

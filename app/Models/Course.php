@@ -68,7 +68,7 @@ class Course extends Model
 
     //relacion uno a uno polimorfica
     public function image(){
-        return $this->morphOne('App\Models\Image', 'Imageable');
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
 
     public function lessons(){

@@ -1,7 +1,7 @@
 <div class='container py-8'>
     <x-table-responsive>
         <div class="px-6 py-4 flex">
-          <input wire:keydown="limpiar_page" wire:model="search" class="form input flex-1 shadow-sm" placeholder="Ingrese el nombre de una Actividad">
+          <input wire:keydown="limpiar_page" wire:model="search" class="form-input flex-1 shadow-sm" placeholder="Ingrese el nombre de una Actividad">
             <a class="btn btn-danger ml-2" href="{{route('voluntary.courses.create')}}">Crear nueva actividad</a>
         </div>
 
@@ -32,7 +32,13 @@
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
-                          <img class="h-10 w-10 rounded-full" src="{{Storage::url($course->image->url)}}" alt="">
+                          @isset($course->image)
+                          <img class="h-10 w-10 rounded-full object-cover object-center" src="{{Storage::url($course->image->url)}}" alt="">
+                          @else
+                          <img class="h-10 w-10 rounded-full object-cover object-center" src="https://images.pexels.com/photos/6787953/pexels-photo-6787953.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500https://images.pexels.com/photos/6787953/pexels-photo-6787953.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+
+                           
+                          @endisset
                         </div>
                         <div class="ml-4">
                           <div class="text-sm font-medium text-gray-900">

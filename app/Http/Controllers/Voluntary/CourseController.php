@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Voluntary;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Category;
+
 
 class CourseController extends Controller
 {
@@ -39,6 +41,27 @@ class CourseController extends Controller
     public function store(Request $request)
     {
        // return view('voluntary.courses.show');
+       $request->validate([
+           'title' => 'required',
+           'slug' => 'required|unique:courses',
+           'subtitle' => 'required',
+           'description' => 'required',
+           'category_id' => 'required',
+           'file' => 'image',
+           'week' => 'required',
+           'hourStart' => 'required',
+           'hourEnd' => 'required',
+       ]);
+
+       $course = Course::create($request->all());
+      
+       if($request->file('file')){
+            $url = Storage::put('activity', $request->file('file'));
+            $course->image()->create([
+                'url' => $url
+            ]);
+        } 
+        return redirect()->route('voluntary.courses.edit', $course);
     }
 
     /**
@@ -60,8 +83,6 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-
-
         $categories = Category::pluck('name', 'id');
         return view('voluntary.courses.edit', compact('course', 'categories'));
     }
@@ -75,7 +96,34 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:courses,slug,'. $course->id,
+            'subtitle' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'file' => 'image',
+            'week' => 'required',
+            'hourStart' => 'required',
+            'hourEnd' => 'required',
+        ]);
+        $course->update($request->all());
+
+        if($request->file('file')){
+            $url = Storage::put('activity', $request->file('file'));
+        
+            if($course->image){
+                Storage::delete([$course->image->url]);
+                $course->image->update([
+                    'url' => $url
+                ]);
+            }else{
+                $course->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+        return redirect()->route('voluntary.courses.edit', $course);
     }
 
     /**
