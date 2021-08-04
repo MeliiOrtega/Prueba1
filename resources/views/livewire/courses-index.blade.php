@@ -48,7 +48,7 @@
 
                         <!--Estrellas-->
                             <div class="flex">
-                                <ul class="flex text-sm">
+                                <ul class="flex text-sm"></ul>
                                     <li class="mr-1"><i class="fas fa-star text-{{$course->rating >=1 ? 'yellow' : 'gray'}}-400"></i></li>
                                     <li class="mr-1"><i class="fas fa-star  text-{{$course->rating >=2 ? 'yellow' : 'gray'}}-400"></i></li>
                                     <li class="mr-1"><i class="fas fa-star text-{{$course->rating >=3 ? 'yellow' : 'gray'}}-400"></i></li>
@@ -76,3 +76,7 @@
         {{$courses->links()}}
     </div>
 </div>
+
+{{-- COMENTARIO: LA VISTA DE ESTE LIVEWIRE NO ES, EL ARCHIVO CORRESPONDIENTE A ESTE ESTA EN LA CARPETA
+COURSES -> INDEX.BLADE.PHP --}}
+

@@ -21,3 +21,11 @@
 .btn-danger:hover {
     @apply bg-red-700;
   }
+
+.btn-blue {
+    @apply bg-blue-600 text-white;
+  }
+
+.btn-blue:hover {
+    @apply bg-blue-700;
+  }

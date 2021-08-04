@@ -24,7 +24,7 @@
                 <header class="mt-2">
                     <h1 class="text-center text-xl text-gray-700">Fisicos</h1>
                 </header>
-                <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, ducimus officiis commodi quaerat.</p>
+                <p class="text-sm text-gray-500">El ejercicio fisico alivia el dolor y reduce la limitación del movimiento articular; además disminuye la tensión arterial y el consumo de medicamentos</p>
             </article>
 
             <article>
@@ -34,7 +34,7 @@
                 <header class="mt-2">
                     <h1 class="text-center text-xl text-gray-700">Mentales</h1>
                 </header>
-                <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, ducimus officiis commodi quaerat.</p>
+                <p class="text-sm text-gray-500">El ejercicio mental ayuda a fortalecer la memoria, y a prevenir o retrasar el deterioro cognitivo, manteniendo la mente activa a la vez que va envejeciendo.</p>
             </article>
 
             <article>
@@ -44,7 +44,7 @@
                 <header class="mt-2">
                     <h1 class="text-center text-xl text-gray-700">Arte</h1>
                 </header>
-                <p class="text-sm text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, ducimus officiis commodi quaerat.</p>
+                <p class="text-sm text-gray-500">El arte ayuda a la coordinación ojo-mano permite sincronizar los movimientos de ojos y manos mientras se realizan actividades manuales que requieren atención visual.</p>
             </header>
             </article>
         </div>

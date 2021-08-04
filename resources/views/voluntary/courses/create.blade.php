@@ -7,7 +7,7 @@
 
                 {!! Form::open(['route' => 'voluntary.courses.store', 'files' => true, 'autocomplete' => 'off']) !!}
                 {!! Form::hidden('user_id', auth()->user()->id) !!}
-        
+
                 @include('voluntary.courses.partials.form')
 
                 <div class="flex justify-end">
@@ -18,7 +18,7 @@
         </div>
     </div>
     <x-slot name="js">
-        <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
+      {{--   <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script> --}}
         <script src="{{asset('js/voluntary/courses/form.js')}}">
         </script>
     </x-slot>

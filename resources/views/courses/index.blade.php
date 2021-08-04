@@ -25,6 +25,9 @@
 
     <section class="my-24">
         <!--LISTA DE ACTIVIDADES-->
+        <h1 class="uppercase text-center text-3xl  text-indigo-800 font-bold mb-6">
+            Todas las actividades
+        </h1>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
 
             @foreach ($courses as $course)
