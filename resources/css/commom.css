@@ -30,6 +30,13 @@
     border: 0;
 }
 
+.form-input{
+    @apply
+    border border-gray-300
+    bg-white rounded-md
+    shadow-sm focus:outline-none;
+}
+
 @media(min-width:640px){
     .container{
         @apply px-6;
@@ -42,3 +49,4 @@
 
     }
 }
+

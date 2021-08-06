@@ -35,19 +35,19 @@
                         <li class="leading-7 mb-1 border-l-4 @routeIs('voluntary.courses.curriculum', $course) border-indigo-400 @else border-transparent @endif pl-2">
                             <a href="{{route('voluntary.courses.curriculum', $course)}}">Contenido de la Actividad</a>
                         </li>
-                        <li class="leading-7 mb-1 border-l-4 border-transparent pl-2">
-                            <a href="">Objetivos de la Actividad</a>
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('voluntary.courses.goals', $course) border-indigo-400 @else border-transparent @endif pl-2">
+                            <a href="{{route('voluntary.courses.goals', $course)}}">Objetivos de la Actividad</a>
                         </li>
-                        <li class="leading-7 mb-1 border-l-4 border-transparent pl-2">
-                            <a href="">Adultos Mayores</a>
+                        <li class="leading-7 mb-1 border-l-4 @routeIs('voluntary.courses.students', $course) border-indigo-400 @else border-transparent @endif pl-2">
+                            <a href="{{route('voluntary.courses.students', $course)}}">Adultos Mayores</a>
                         </li>
                 </aside>
-        
+
                 <!--FORMULARIO -->
                 <div class="card col-span-4">
                     <main class="card-body">
                         {{$slot}}
-        
+
                     </main>
                 </div>
             </div>

@@ -54,13 +54,13 @@ class CourseController extends Controller
        ]);
 
        $course = Course::create($request->all());
-      
+
        if($request->file('file')){
             $url = Storage::put('activity', $request->file('file'));
             $course->image()->create([
                 'url' => $url
             ]);
-        } 
+        }
         return redirect()->route('voluntary.courses.edit', $course);
     }
 
@@ -111,7 +111,7 @@ class CourseController extends Controller
 
         if($request->file('file')){
             $url = Storage::put('activity', $request->file('file'));
-        
+
             if($course->image){
                 Storage::delete([$course->image->url]);
                 $course->image->update([
@@ -135,5 +135,9 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         //
+    }
+
+    public function goals(Course $course){
+        return view('voluntary.courses.goals', compact('course'));
     }
 }

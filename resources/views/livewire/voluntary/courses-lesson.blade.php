@@ -10,7 +10,7 @@
                 <h1 class="text-xl font-bold mb-4">Agregar nuevo video</h1>
                 <div class="mb-4">
                     <div class="flex items-center">
-                        <label class="w-32">Nombre: </label>
+                        <label class="w-32">Título: </label>
                         <input wire:model="name" class="form-control w-full border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none" type="text">
                     </div>
                     @error('name')
