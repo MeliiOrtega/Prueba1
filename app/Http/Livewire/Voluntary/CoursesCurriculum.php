@@ -25,7 +25,7 @@ class CoursesCurriculum extends Component
 
     public function render()
     {
-        return view('livewire.voluntary.courses-curriculum')->layout('layouts.voluntary');
+        return view('livewire.voluntary.courses-curriculum')->layout('layouts.voluntary', ['course'=> $this->course]);
     }
 
     public function edit(Section $section){
