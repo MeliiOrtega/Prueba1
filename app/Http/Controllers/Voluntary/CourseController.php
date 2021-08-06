@@ -11,6 +11,13 @@ use App\Models\Category;
 
 class CourseController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:Leer Actividades')->only('index');
+        $this->middleware('can:Crear Actividades')->only('create', 'store');
+        $this->middleware('can:Actualizar Actividades')->only('edit', 'update', 'goals');
+        $this->middleware('can:Eliminarar Actividades')->only('destroy');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -83,6 +90,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
+        $this->authorize('dicatated', $course);
+
         $categories = Category::pluck('name', 'id');
         return view('voluntary.courses.edit', compact('course', 'categories'));
     }
@@ -96,6 +105,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+        $this->authorize('dicatated', $course);
+
         $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:courses,slug,'. $course->id,
@@ -138,6 +149,7 @@ class CourseController extends Controller
     }
 
     public function goals(Course $course){
+        $this->authorize('dicatated', $course);
         return view('voluntary.courses.goals', compact('course'));
     }
 }
