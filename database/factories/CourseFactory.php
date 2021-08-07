@@ -37,7 +37,7 @@ class CourseFactory extends Factory
             'hourStart' => $this->faker->time() ,
             'hourEnd' => $this->faker->time(),
             'link' => $this->faker->sentence(),
-            'user_id' => $this->faker->randomElement(1, 2, 3, 4, 5),
+            'user_id' => $this->faker->randomElement([1, 2, 3, 4, 5]),
             'category_id' => Category::all()->random()->id
         ];
 
