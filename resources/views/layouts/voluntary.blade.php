@@ -42,7 +42,8 @@
                             <a href="{{route('voluntary.courses.students', $course)}}">Adultos Mayores</a>
                         </li>
                     </ul>
-                    <@switch($course->status)
+
+                    @switch($course->status)
                         @case(1)
                             <form action="{{route('voluntary.courses.status', $course)}}" method="POST">
                                 @csrf
@@ -67,12 +68,12 @@
                             @break
                         @default
                     @endswitch
-
                 </aside>
 
+
                 <!--FORMULARIO -->
-                <div class="card col-span-4">
-                    <main class="card-body">
+                <div class="col-span-4 card">
+                    <main class="card-body text-gray-600">
                         {{$slot}}
 
                     </main>

@@ -33,7 +33,7 @@
             </table>
         </div>
         <div class="card-footer">
-            {{$courses->links()}}
+            {{$courses->links('vendor.pagination.bootstrap-4')}}
         </div>
     </div>
 @stop

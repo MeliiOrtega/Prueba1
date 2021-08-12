@@ -35,7 +35,7 @@ class CoursePolicy
     }
 
     public function dicatated(User $user, Course $course){
-        if($course->user_id == $user->id){
+        if($course->user == 2){
             return true;
         }else
             return false;

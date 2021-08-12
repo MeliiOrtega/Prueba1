@@ -12,6 +12,6 @@ class CourseController extends Controller
 
         $courses = Course::where('status', 2)->paginate();
 
-        return view('admin.courses.index');
+        return view('admin.courses.index', compact('courses'));
     }
 }
